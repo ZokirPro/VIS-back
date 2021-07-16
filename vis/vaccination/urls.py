@@ -4,8 +4,9 @@ from . import views
 app_name='vaccines'
 urlpatterns = [
     path('registration_animals',views.registration_animalsIndex,name='registration_animals'),
-    path('handbook',views.handbookIndex,name='handbook'),
-    path('distribution',views.distributionIndex,name='distribution'),
-    path('consumption_rate',views.consumption_rateIndex,name='consumption_rate'),
-    path('report_vaccines',views.reportIndex,name='report_vaccines')
+    path('spravochnik_kategoriya',views.spravochnik_kategoriyaIndex,name='spravochnik_kategoriya'),
+    path('spravichnok_svetov',views.spravichnok_svetovIndex,name='spravichnok_svetov'),
+    path('schemes',views.schemesIndex,name='schemes'),
+    path('registration_vaccines',views.registration_vaccinesIndex,name='registration_vaccines'),
+    path('report_vaccination',views.report_vaccinationIndex,name='report_vaccination')
 ]   

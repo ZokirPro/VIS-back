@@ -47,19 +47,31 @@
                     </ul>
                 
             </li>
-            <li class="has-sub">
+            <li class="has-sub {% if url_name == 'registration_animals' or  url_name == 'spravochnik_kategoriya' or url_name == 'spravichnok_svetov' or url_name == 'schemes' or url_name == 'registration_vaccines'  or url_name == 'report_vaccination' %}active{% endif %}">
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="fas fa-book-medical"></i>
                     <span>Вакцинация</span>
                 </a>
                     <ul class="sub-menu">
-                        <li class="active"><a href="javascript:;">Регистрация животных</a></li>
-                        <li><a href="javascript:;">Справочник категорий животных</a></li>
-                        <li><a href="javascript:;">Справочник цветов животных</a></li>
-                        <li><a href="javascript:;">Схемы вакцинации</a></li>
-                        <li><a href="javascript:;">Регистрация вакцинации</a></li>
-                        <li><a href="javascript:;">Отчетность</a></li>
+                        <li class="{% if  url_name == 'registration_animals'  %}active{% endif %}">
+                            <a href="{% url 'vaccines:registration_animals' %}">Регистрация животных</a>
+                        </li>
+                        <li class="{% if  url_name == 'spravochnik_kategoriya'  %}active{% endif %}">
+                            <a href="{% url 'vaccines:spravochnik_kategoriya' %}">Справочник категорий животных</a>
+                        </li>
+                        <li class="{% if  url_name == 'spravichnok_svetov'  %}active{% endif %}">
+                            <a href="{% url 'vaccines:spravichnok_svetov' %}">Справочник цветов животных</a>
+                        </li>
+                        <li class="{% if  url_name == 'schemes'  %}active{% endif %}">
+                            <a href="{% url 'vaccines:schemes' %}">Схемы вакцинации</a>
+                        </li>
+                        <li class="{% if  url_name == 'registration_vaccines'  %}active{% endif %}">
+                            <a href="{% url 'vaccines:registration_vaccines' %}">Регистрация вакцинации</a>
+                        </li>
+                        <li class="{% if  url_name == 'report_vaccination'  %}active{% endif %}">
+                            <a href="{% url 'vaccines:report_vaccination' %}">Отчетность</a>
+                        </li>
                     </ul>
                
             </li>
