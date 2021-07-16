@@ -2,12 +2,19 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def fizIndex(request):
+def jismoniyIndex(request):
     context={}
 
-    return render(request,'owners/fizIndex.html',context)
+    return render(request,'owners/jismoniy/index.html',context)
 
-def yuridIndex(request):
+def yuridikIndex(request):
     context={}
-    return render(request,'owners/yuridIndex.html',context)
+    return render(request,'owners/yuridik/index.html',context)
+
+def hisobotIndex(request):
+    context={}
+    return render(request,'owners/hisobot/index.html',context)
+
+
+
     
