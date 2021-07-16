@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    
+   {% block head %} 
+        {% block meta %}
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                <!-- Meta, title, CSS, favicons, etc. -->
+                <meta charset="utf-8" />
+                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                
+                <link rel="icon" href="data:,">
+        {% endblock meta %}
+
+        <title>VIS admin | {% block title %}{% endblock %}</title>
+        
+        {% block stylesheets %}
+                <!-- ================== BEGIN BASE CSS STYLE ================== -->
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+                <link href="{% static 'css/default/app.min.css' %}" rel="stylesheet" />
+                <!-- ================== END BASE CSS STYLE ================== -->
+        {% endblock stylesheets %}
+
+    {% endblock head%}
+</head>
+<body>
+    {% block body %}
+        <!-- begin #page-loader -->
+        <div id="page-loader" class="fade show">
+            <span class="spinner"></span>
+        </div>
+        <!-- end #page-loader -->
+
+        <!-- begin #page-container  header and sidebar-->
+        <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+                <!-- ================== TOP NAVIGATION ================== -->
+            {% block top_navigation %}
+                {% include "partials/top_navigation.html" %}
+            {% endblock top_navigation %}
+
+                <!-- ================== SIDEBAR================== -->
+            {% block sidebar %}
+            {% include "partials/sidebar.html" %}
+            {% endblock sidebar %}
+                
+                <!-- ================== CONTENT ================== -->
+            {% block content %}
+            <!-- {{ content }} -->
+            {% endblock content %}
+
+            <!-- begin scroll to top btn -->
+            <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i
+                class="fa fa-angle-up"></i></a>
+            <!-- end scroll to top btn -->
+        </div>
+        {% block javascripts %}
+            <!-- ================== BEGIN BASE JS ================== -->
+            <script src="{% static 'js/app.min.js' %}"></script>
+            <script src="{% static 'js/theme/default.min.js' %}"></script>
+            <!-- ================== END BASE JS ================== -->
+        {% endblock javascripts %}
+    {% endblock body %}
+</body>
+</html>
