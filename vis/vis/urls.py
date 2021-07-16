@@ -5,7 +5,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('owners/',include('owners.urls'),name='owners'),   
-    re_path(r'^.*', views.other_html, name='template'),
-    
-
+    path('vaccines/',include('vaccines.urls'),name='vaccines'),
+    path('vaccination/',include('vaccination.urls'),name='vaccination'),
 ]

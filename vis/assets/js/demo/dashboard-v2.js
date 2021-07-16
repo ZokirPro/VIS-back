@@ -282,7 +282,7 @@ var handleScheduleCalendar = function() {
 var handleDashboardGritterNotification = function() {
 	setTimeout(function() {
 		$.gritter.add({
-			title: 'Welcome back, Admin!',
+			title: 'С возвращением, Админ!',
 			text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempus lacus ut lectus rutrum placerat.',
 			image: '../assets/img/user/user-12.jpg',
 			sticky: true,

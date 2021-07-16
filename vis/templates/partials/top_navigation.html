@@ -2,7 +2,7 @@
 <div id="header" class="header navbar-default">
     <!-- begin navbar-header -->
     <div class="navbar-header">
-        <a href="{% url 'index'%}" class="navbar-brand"><span class="navbar-logo"></span> <b>VIS</b> REGISTON</a>
+        <a href="{% url 'index'%}" class="navbar-brand"><img src="{%  static 'img/logo/logo (2).png'%}" alt="" srcset=""> <b> VIS-</b>REGISTON</a>
         <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -12,29 +12,22 @@
     <!-- end navbar-header -->
     <!-- begin header-nav -->
     <ul class="navbar-nav navbar-right">
-        <li class="navbar-form">
-            <form action="" method="POST" name="search">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Enter keyword" />
-                    <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
-                </div>
-            </form>
-        </li>
+        
         <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="dropdown-toggle f-s-14">
                 <i class="fa fa-bell"></i>
                 <span class="label">5</span>
             </a>
             <div class="dropdown-menu media-list dropdown-menu-right">
-                <div class="dropdown-header">NOTIFICATIONS (5)</div>
+                <div class="dropdown-header">УВЕДОМЛЕНИЯ (5)</div>
                 <a href="javascript:;" class="dropdown-item media">
                     <div class="media-left">
                         <i class="fa fa-bug media-object bg-silver-darker"></i>
                     </div>
                     <div class="media-body">
-                        <h6 class="media-heading">Server Error Reports <i
+                        <h6 class="media-heading">Отчеты об ошибках сервера <i
                                 class="fa fa-exclamation-circle text-danger"></i></h6>
-                        <div class="text-muted f-s-10">3 minutes ago</div>
+                        <div class="text-muted f-s-10"> 3 минуты назад</div>
                     </div>
                 </a>
                 <a href="javascript:;" class="dropdown-item media">
@@ -43,9 +36,9 @@
                         <i class="fab fa-facebook-messenger text-blue media-object-icon"></i>
                     </div>
                     <div class="media-body">
-                        <h6 class="media-heading">John Smith</h6>
+                        <h6 class="media-heading">Джон Смит</h6>
                         <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
-                        <div class="text-muted f-s-10">25 minutes ago</div>
+                        <div class="text-muted f-s-10">25 минут назад</div>
                     </div>
                 </a>
                 <a href="javascript:;" class="dropdown-item media">
@@ -56,7 +49,7 @@
                     <div class="media-body">
                         <h6 class="media-heading">Olivia</h6>
                         <p>Quisque pulvinar tellus sit amet sem scelerisque tincidunt.</p>
-                        <div class="text-muted f-s-10">35 minutes ago</div>
+                        <div class="text-muted f-s-10">35 минут назад</div>
                     </div>
                 </a>
                 <a href="javascript:;" class="dropdown-item media">
@@ -64,8 +57,8 @@
                         <i class="fa fa-plus media-object bg-silver-darker"></i>
                     </div>
                     <div class="media-body">
-                        <h6 class="media-heading"> New User Registered</h6>
-                        <div class="text-muted f-s-10">1 hour ago</div>
+                        <h6 class="media-heading"> Зарегистрирован новый пользователь</h6>
+                        <div class="text-muted f-s-10">1 час назад</div>
                     </div>
                 </a>
                 <a href="javascript:;" class="dropdown-item media">
@@ -74,12 +67,12 @@
                         <i class="fab fa-google text-warning media-object-icon f-s-14"></i>
                     </div>
                     <div class="media-body">
-                        <h6 class="media-heading"> New Email From John</h6>
-                        <div class="text-muted f-s-10">2 hour ago</div>
+                        <h6 class="media-heading"> Из нового письма Джон</h6>
+                        <div class="text-muted f-s-10">2 часа назад</div>
                     </div>
                 </a>
                 <div class="dropdown-footer text-center">
-                    <a href="javascript:;">View more</a>
+                    <a href="javascript:;">посмотреть больше</a>
                 </div>
             </div>
         </li>
@@ -102,16 +95,16 @@
         <li class="dropdown navbar-user">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <img src="{% static 'img/user/user-13.jpg' %}" alt="" />
-                <span class="d-none d-md-inline">Adam Schwartz</span> <b class="caret"></b>
+                <span class="d-none d-md-inline">Адам Шварц</span> <b class="caret"></b>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="javascript:;" class="dropdown-item">Edit Profile</a>
+                <a href="javascript:;" class="dropdown-item">Редактировать профиль</a>
                 <a href="javascript:;" class="dropdown-item"><span class="badge badge-danger pull-right">2</span>
-                    Inbox</a>
-                <a href="javascript:;" class="dropdown-item">Calendar</a>
-                <a href="javascript:;" class="dropdown-item">Setting</a>
+                    Входящие</a>
+                <a href="javascript:;" class="dropdown-item">Календарь</a>
+                <a href="javascript:;" class="dropdown-item">Параметр</a>
                 <div class="dropdown-divider"></div>
-                <a href="login_v3.html" class="dropdown-item">Log Out</a>
+                <a href="login_v3.html" class="dropdown-item">Выйти</a>
             </div>
         </li>
     </ul>
