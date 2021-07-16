@@ -28,7 +28,7 @@
         <!-- end sidebar user -->
         <!-- begin sidebar nav -->
         <ul class="nav">
-            <li class="active"><a href="javascript:;"><i class="fa fa-th-large"></i> Рабочий стол</a></li>
+            <li class="active"><a href="javascript:;"><i class="fa fa-th-large"></i> <span>Рабочий стол</span></a></li>
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>
@@ -36,8 +36,8 @@
                     <span>Владельцы</span>
                 </a>
                 <ul class="sub-menu">
-                    <li class="active"><a href="javascript:;">Физ. лицо</a></li>
-                    <li><a href="javascript:;">Юр. лицо</a></li>
+                    <li class="active"><a href="{% url 'owners:fiz' %}">Физ. лицо</a></li>
+                    <li><a href="{% url 'owners:yurid' %}">Юр. лицо</a></li>
                     <li><a href="javascript:;">Отчетность</a></li>
                 </ul>
             </li>
@@ -98,7 +98,13 @@
                     </ul>
                
             </li>
-            <li><a href="javascript:;"><i class="fas fa-tv"></i>Отчетность и мониторинг</a></li>
+            
+            <li>
+                <a href="javascript:;">
+                    <i class="fas fa-tv"></i>
+                    <span>Отчетность и мониторинг</span>
+                </a>
+            </li>
             <li class="has-sub">
                 <a href="javascript:;">
                     <b class="caret"></b>

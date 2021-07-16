@@ -1,0 +1,36 @@
+{% extends 'base_site.html'%}
+
+{% load static %}
+
+{% block title %}
+Dashboard
+{% endblock title %}
+
+{% block stylesheets %}
+{{block.super}}
+<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+<link href="{% static 'plugins/jvectormap-next/jquery-jvectormap.css' %}" rel="stylesheet" />
+<link href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}" rel="stylesheet" />
+<link href="{% static 'plugins/gritter/css/jquery.gritter.css' %}" rel="stylesheet" />
+<!-- ================== END PAGE LEVEL STYLE ================== -->
+{% endblock stylesheets %}
+
+{% block content%}
+
+{% endblock content %}
+
+{% block javascripts %}
+{{ block.super}}
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<script src="{% static 'plugins/gritter/js/jquery.gritter.js' %}"></script>
+<script src="{% static 'plugins/flot/jquery.flot.js' %}"></script>
+<script src="{% static 'plugins/flot/jquery.flot.time.js' %}"></script>
+<script src="{% static 'plugins/flot/jquery.flot.resize.js' %}"></script>
+<script src="{% static 'plugins/flot/jquery.flot.pie.js' %}"></script>
+<script src="{% static 'plugins/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+<script src="{% static 'plugins/jvectormap-next/jquery-jvectormap.min.js' %}"></script>
+<script src="{% static 'plugins/jvectormap-next/jquery-jvectormap-world-mill.js' %}"></script>
+<script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+<script src="{% static 'js/demo/dashboard.js' %}"></script>
+<!-- ================== END PAGE LEVEL JS ================== -->
+{% endblock javascripts %}
