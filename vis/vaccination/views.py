@@ -13,7 +13,7 @@ def spravochnik_kategoriyaIndex(request):
 
 def spravichnok_svetovIndex(request):
     context={}
-    return render(request,'vaccination/spravichnok_svetov/index.html',context)
+    return render(request,'vaccination/spravochnik_svetov/index.html',context)
 
 def schemesIndex(request):
     context={}

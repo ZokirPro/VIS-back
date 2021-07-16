@@ -55,55 +55,67 @@
                 </a>
                     <ul class="sub-menu">
                         <li class="{% if  url_name == 'registration_animals'  %}active{% endif %}">
-                            <a href="{% url 'vaccines:registration_animals' %}">Регистрация животных</a>
+                            <a href="{% url 'vaccination:registration_animals' %}">Регистрация животных</a>
                         </li>
                         <li class="{% if  url_name == 'spravochnik_kategoriya'  %}active{% endif %}">
-                            <a href="{% url 'vaccines:spravochnik_kategoriya' %}">Справочник категорий животных</a>
+                            <a href="{% url 'vaccination:spravochnik_kategoriya' %}">Справочник категорий животных</a>
                         </li>
                         <li class="{% if  url_name == 'spravichnok_svetov'  %}active{% endif %}">
-                            <a href="{% url 'vaccines:spravichnok_svetov' %}">Справочник цветов животных</a>
+                            <a href="{% url 'vaccination:spravichnok_svetov' %}">Справочник цветов животных</a>
                         </li>
                         <li class="{% if  url_name == 'schemes'  %}active{% endif %}">
-                            <a href="{% url 'vaccines:schemes' %}">Схемы вакцинации</a>
+                            <a href="{% url 'vaccination:schemes' %}">Схемы вакцинации</a>
                         </li>
                         <li class="{% if  url_name == 'registration_vaccines'  %}active{% endif %}">
-                            <a href="{% url 'vaccines:registration_vaccines' %}">Регистрация вакцинации</a>
+                            <a href="{% url 'vaccination:registration_vaccines' %}">Регистрация вакцинации</a>
                         </li>
                         <li class="{% if  url_name == 'report_vaccination'  %}active{% endif %}">
-                            <a href="{% url 'vaccines:report_vaccination' %}">Отчетность</a>
+                            <a href="{% url 'vaccination:report_vaccination' %}">Отчетность</a>
                         </li>
                     </ul>
                
             </li>
-            <li class="has-sub">
+            <li class="has-sub {% if url_name == 'registration_vaccinated_animals' or  url_name == 'test_results' or url_name == 'recommendations' or url_name == 'report_diagnostics'  %}active{% endif %}">
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="fas fa-stethoscope"></i>
                     <span>Диагностика</span>
                 </a>
                     <ul class="sub-menu">
-                        <li class="active"><a href="javascript:;">Регистрация осмотра вакцинированных животных</a></li>
-                        <li><a href="javascript:;">Результаты лабораторных анализов</a></li>
-                        <li><a href="javascript:;">Рекомендации и оповещения угрозы</a></li>
-                        <li><a href="javascript:;">Отчетность</a></li>
+                        <li class="{% if  url_name == 'registration_vaccinated_animals'  %}active{% endif %}">
+                            <a href="{% url 'diagnostics:registration_vaccinated_animals' %}">Регистрация осмотра вакцинированных животных</a>
+                        </li>
+                        <li class="{% if  url_name == 'test_results'  %}active{% endif %}">
+                            <a href="{% url 'diagnostics:test_results' %}">Результаты лабораторных анализов</a>
+                        </li>
+                        <li class="{% if  url_name == 'recommendations'  %}active{% endif %}">
+                            <a href="{% url 'diagnostics:recommendations' %}">Рекомендации и оповещения угрозы</a>
+                        </li>
+                        <li class="{% if  url_name == 'report_diagnostics'  %}active{% endif %}">
+                            <a href="{% url 'diagnostics:report_diagnostics' %}">Отчетность</a>
+                        </li>
                     </ul>
                 
             </li>
-            <li class="has-sub">
+            <li class="has-sub {% if url_name == 'settings_support' or  url_name == 'report_interactions' %}active{% endif %}"">
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="fas fa-sync-alt"></i>
                     <span>Межведомственное взаимодействие</span>
                 </a>
                     <ul class="sub-menu">
-                        <li class="active"><a href="javascript:;">Настройки и поддержки</a></li>
-                        <li><a href="javascript:;">Отчетность</a></li>
+                        <li class="{% if  url_name == 'settings_support'  %}active{% endif %}">
+                            <a href="{% url 'interactions:settings_support' %}">Настройки и поддержки</a>
+                        </li>
+                        <li class="{% if  url_name == 'report_interactions'  %}active{% endif %}">
+                            <a href="{% url 'interactions:report_interactions' %}">Отчетность</a>
+                        </li>
                     </ul>
                
             </li>
             
-            <li>
-                <a href="javascript:;">
+            <li class="{% if  url_name == 'monitoring'  %}active{% endif %}">
+                <a href="{% url 'monitoring:monitoring' %}">
                     <i class="fas fa-tv"></i>
                     <span>Отчетность и мониторинг</span>
                 </a>

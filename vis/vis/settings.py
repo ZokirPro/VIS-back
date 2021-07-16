@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'owners',
     'vaccines',
     'vaccination',
+    'diagnostics',
+    'interactions',
+    'monitoring',
 ]
 
 MIDDLEWARE = [

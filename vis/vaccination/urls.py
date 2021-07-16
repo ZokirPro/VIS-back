@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path,re_path,include
 from . import views
-app_name='vaccines'
+app_name='vaccination'
 urlpatterns = [
     path('registration_animals',views.registration_animalsIndex,name='registration_animals'),
     path('spravochnik_kategoriya',views.spravochnik_kategoriyaIndex,name='spravochnik_kategoriya'),
