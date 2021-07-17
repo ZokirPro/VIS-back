@@ -120,45 +120,69 @@
                     <span>Отчетность и мониторинг</span>
                 </a>
             </li>
-            <li class="has-sub">
+            <li class="has-sub {% if url_name == 'internal_directories' or  url_name == 'external_directories' or url_name == 'report_services'  %}active{% endif %}">
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="fas fa-info"></i>
                     <span>Информационные услуги</span>
                 </a>
                     <ul class="sub-menu">
-                        <li class="active"><a href="javascript:;">Внутренние справочники</a></li>
-                        <li><a href="javascript:;">Внешние справочники</a></li>
-                        <li><a href="javascript:;">Отчетность</a></li>
+                        <li class="{% if  url_name == 'internal_directories'  %}active{% endif %}">
+                            <a href="{% url 'information_services:internal_directories' %}">Внутренние справочники</a>
+                        </li>
+                        <li class="{% if  url_name == 'external_directories'  %}active{% endif %}">
+                            <a href="{% url 'information_services:external_directories' %}">Внешние справочники</a>
+                        </li>
+                        <li class="{% if  url_name == 'report_services'  %}active{% endif %}">
+                            <a href="{% url 'information_services:report_services' %}">Отчетность</a>
+                        </li>
                     </ul>
                
             </li>
-            <li class="has-sub">
+            <li class="has-sub  {% if url_name == 'security_policy' or  url_name == 'access_control' or url_name == 'authentication' or url_name == 'report_security'  %}active{% endif %}">
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="fas fa-shield-alt"></i>
                     <span>Безопасность и защита информации</span>
                 </a>
                     <ul class="sub-menu">
-                        <li class="active"><a href="javascript:;">Управление политикой безопасности</a></li>
-                        <li><a href="javascript:;">Управление доступом</a></li>
-                        <li><a href="javascript:;">Аутентификация</a></li>
-                        <li><a href="javascript:;">Отчетность</a></li>
+                        <li  class="{% if  url_name == 'security_policy'  %}active{% endif %}">
+                            <a href="{% url 'security:security_policy' %}">Управление политикой безопасности</a>
+                        </li>
+                        <li  class="{% if  url_name == 'access_control'  %}active{% endif %}">
+                            <a href="{% url 'security:access_control' %}">Управление доступом</a>
+                        </li>
+                        <li  class="{% if  url_name == 'authentication'  %}active{% endif %}">
+                            <a href="{% url 'security:authentication' %}">Аутентификация</a>
+                        </li>
+                        <li  class="{% if  url_name == 'report_security'  %}active{% endif %}">
+                            <a href="{% url 'security:report_security' %}">Отчетность</a>
+                        </li>
                     </ul>
                 
             </li>
-            <li class="has-sub">
+            <li class="has-sub {% if url_name == 'user_adminstration' or  url_name == 'user_rights' or url_name == 'audit' or url_name == 'archive_restore' or url_name == 'report_adminstration'  %}active{% endif %}"">
                 <a href="javascript:;">
                     <b class="caret"></b>
                     <i class="fas fa-user-shield"></i>
                     <span>Администрирование системы</span>
                 </a>
                     <ul class="sub-menu">
-                        <li class="active"><a href="javascript:;">Администрирование пользователей</a></li>
-                        <li><a href="javascript:;">Настройка прав полномочий пользователей</a></li>
-                        <li><a href="javascript:;">Аудит</a></li>
-                        <li><a href="javascript:;">Архивация и восстановление БД</a></li>
-                        <li><a href="javascript:;">Отчетность</a></li>
+                        <li class="{% if  url_name == 'user_adminstration'  %}active{% endif %}">
+                            <a href="{% url 'adminstration_system:user_adminstration' %}">Администрирование пользователей</a>
+                        </li>
+                        <li class="{% if  url_name == 'user_rights'  %}active{% endif %}">
+                            <a href="{% url 'adminstration_system:user_rights' %}">Настройка прав полномочий пользователей</a>
+                        </li>
+                        <li class="{% if  url_name == 'audit'  %}active{% endif %}">
+                            <a href="{% url 'adminstration_system:audit' %}">Аудит</a>
+                        </li>
+                        <li class="{% if  url_name == 'archive_restore'  %}active{% endif %}">
+                            <a href="{% url 'adminstration_system:archive_restore' %}">Архивация и восстановление БД</a>
+                        </li>
+                        <li class="{% if  url_name == 'report_adminstration'  %}active{% endif %}">
+                            <a href="{% url 'adminstration_system:report_adminstration' %}">Отчетность</a>
+                        </li>
                     </ul>
                 
             </li>

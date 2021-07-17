@@ -10,4 +10,7 @@ urlpatterns = [
     path('diagnostics/',include('diagnostics.urls'),name='diagnostics'),
     path('interactions/',include('interactions.urls'),name='interactions'),
     path('monitoring/',include('monitoring.urls'),name='monitoring'),
+    path('information_services/',include('information_services.urls'),name='information_services'),
+    path('adminstration_system/',include('adminstration_system.urls'),name='adminstration_system'),
+    path('security/',include('security.urls'),name='security'),
 ]

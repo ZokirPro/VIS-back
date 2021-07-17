@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'diagnostics',
     'interactions',
     'monitoring',
+    'information_services',
+    'adminstration_system',
+    'security',
 ]
 
 MIDDLEWARE = [
