@@ -1,11 +1,11 @@
 <!-- begin add owner model -->
 <div class="modal fade " id="addModal">
-    <div class="modal-dialog modal-xl">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Добавить владельца</h4>
+                <h4 class="modal-title">Добавить</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
@@ -13,32 +13,41 @@
             <div class="modal-body">
                 <form action="" class="form-group">
                     <div class="row">
-                        <div class="col-6">
-                            <label for="fio" class="font-weight-bold">ФИО:</label>
-
-                            <input type="text" name="" id="fio" placeholder="Введите имя" class="form-control">
-                        </div>
-                        <div class="col-6">
-                            <label for="phone" class="font-weight-bold">Номер телефона:</label>
-                            <input type="text" name="" id="phone" placeholder="Введите номер телефона"
+                        <div class="col-4">
+                            <label for="fio" class="font-weight-bold">код вакцины:</label>
+                            <input type="text" name="" id="fio" placeholder="Введите код вакцины"
                                 class="form-control">
                         </div>
-                    </div>
-                   <div class="row mt-2">
-                        <div class="col-6">
-                            <label for="pinfl" class="font-weight-bold">ПИНФЛ:</label>
-                            <input type="text" name="" id="pinfl" placeholder="Введите ПИНФЛ" class="form-control" value="">
-                           
+                        <div class="col-4">
+                            <label for="phone" class="font-weight-bold">производитель;:</label>
+                            <input type="text" name="" id="phone" placeholder="Введите Руководитель организации"
+                                class="form-control">
                         </div>
+                        <div class="col-4">
+                            <label for="pinfl" class="font-weight-bold">ед.изм и количество, упаковка:;:</label>
+                            <input type="text" name="" id="pinfl" placeholder="Введите ед.изм и количество, упаковка"
+                                class="form-control" value="">
 
-                        <div class="col-6">
-
-                            <label for="address" class="font-weight-bold">Адрес:</label>
-                            <textarea name="" id="address" cols="80" rows="2"
-                                placeholder="Введите адрес"></textarea>
                         </div>
-
                     </div>
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <label for="fio" class="font-weight-bold">дата прихода:</label>
+                            <input type="date" name="" id="fio" 
+                                class="form-control">
+                        </div>
+                        <div class="col-4">
+                            <label for="phone" class="font-weight-bold">срок пригодности:</label>
+                            <input type="date" name="" id="phone" placeholder="Введите срок пригодности"
+                                class="form-control">
+                        </div>
+                        <div class="col-4">
+                            <label for="phone" class="font-weight-bold">описание применения:</label>
+                            <input type="file" name="" class="form-control">
+                        </div>
+                    </div>
+                   
+                    
                 </form>
             </div>
 
@@ -46,11 +55,11 @@
             <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">
                     <i class="fas fa-plus-circle fa-lg"></i>
-                    Добавить владельца
+                    Добавить
                 </button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">
                     <i class="fa fa-arrow-circle-left"></i>
-                    Назад</button>
+                    Закрыть</button>
             </div>
 
         </div>

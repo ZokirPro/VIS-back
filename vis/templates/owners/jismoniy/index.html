@@ -10,13 +10,9 @@ Dashboard
 {{block.super}}
 
 <!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
-<link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css">
-<style>
-    .form-control:focus {
-        box-shadow: inset 0 -1px 0 #ddd;
-    }
-    }
-</style>
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.dataTables.min.css"> -->
+<link rel="stylesheet" href=" {% static 'css\datatables\datatables.checkboxes.css' %}">
+<link rel="stylesheet" href=" {% static 'css\mine.css' %}">
 <link href="{% static 'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" />
 <link href="{% static 'plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" />
 
@@ -30,7 +26,7 @@ Dashboard
         <ol class="breadcrumb float-xl-right">
             <li class="breadcrumb-item"><a href="{% url 'index'%}">Дома</a></li>
             <li class="breadcrumb-item"><a href="javascript:;">Владельцы</a></li>
-            <li class="breadcrumb-item active"><a href="{% url 'owners:physical_person' %}">Физическое лицо</a></li>
+            <li class="breadcrumb-item active"><a href="#">Физическое лицо</a></li>
            
         </ol>
         <!-- end breadcrumb -->
@@ -64,7 +60,7 @@ Dashboard
                                 <input type="email" class="form-control" placeholder="Введите адрес" />
                             </div>
                             
-                            <div class="col-2">
+                            <div class="col-2"> 
                                 <input type="email" class="form-control" placeholder="Введите ПИНФЛ" />
                             </div>
 
@@ -112,6 +108,7 @@ Dashboard
                     {% include "owners/jismoniy/add.html" %}
                     {% include "owners/jismoniy/edit.html" %}
                     {% include "owners/jismoniy/view.html" %}
+                    {% include "owners/jismoniy/delete.html" %}
 
                     <!-- begin alert -->
                     
@@ -121,7 +118,7 @@ Dashboard
                         <table id="example" class="table table-striped table-bordered table-td-valign-middle" >
                             <thead>
                                 <tr> 
-                                    <td width="2%" data-orderable="false"><input type="checkbox" name="" id=""></td>
+                                    <th width="1%" data-orderable="false" class="text-center" id="remove_class"><input type="checkbox" name="" id="checkall"></th>
                                     <th width="1%"></th>
                                     <th width="1%" data-orderable="false"></th>
                                     <th width="15%" class="text-nowrap text-center">ФИО</th>
@@ -135,15 +132,15 @@ Dashboard
                                 <th></th>
                                 <th></th>
                                 <th></th>
-                                <th><input type="text" name="" id="" placeholder="Введите имя" class="form-control"></th>
-                                <th><input type="text" name="" id="" placeholder="Введите имя" class="form-control"></th>
-                                <th><input type="text" name="" id="" placeholder="Введите имя" class="form-control"></th>
-                                <th><input type="text" name="" id="" placeholder="Введите имя" class="form-control"></th>
+                                <th><input type="text" name="" id="" placeholder="Введите имя" class="form-control"></th>  
+                                <th><input type="text" name="" id="" placeholder="Введите номер телефона" class="form-control"></th>
+                                <th><input type="text" name="" id="" placeholder="Введите адрес" class="form-control"></th>
+                                <th><input type="text" name="" id="" placeholder="Введите ПИНФЛ" class="form-control"></th>
                                 <th></th>
                             </thead>
                             <tbody>
-                                <tr class="even gradeX">
-                                    <td width="2%" ></td>
+                                <tr class="even gradeX" >
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
                                     <td width="1%" class="f-s-600 text-inverse">1</td>
                                     <td width="1%" class="with-img"><img src="{% static 'img/user/user-1.jpg' %}"
                                             class="img-rounded height-30" /></td>
@@ -159,17 +156,37 @@ Dashboard
                                              data-toggle="modal" data-target="#editModal">
                                             <i class="fas fa-edit fa-lg"></i>
                                         </a>
-                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="tooltip" data-original-title="Удалить">
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
                                             <i class="fas fa-trash fa-lg"></i>
                                         </a>
                                     </td>
                                 </tr>
                                 <tr class="even gradeX">
-                                    <td width="2%"></td>
-                                    <td width="1%" class="f-s-600 text-inverse">1</td>
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">2</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Игнат Богданов</td>
+                                    <td width="15%">+998 78 787 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Шайхантахурский район город Ташкент</td>
+                                    <td width="15%">30113850568014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">3</td>
                                     <td width="1%" class="with-img"><img src="{% static 'img/user/user-1.jpg' %}" class="img-rounded height-30" /></td>
-                                    <td width="15%">Марианна Крылова</td>
-                                    <td width="15%">+998 97 787 33 33</td>
+                                    <td width="15%">Олег Степанов</td>
+                                    <td width="15%">+998 97 777 33 33</td>
                                     <td width="25%">Квартира 14/23 улица Зиёлилар Мирзо Улугбекский район город Ташкент</td>
                                     <td width="15%">30101800050014</td>
                                     <td width="10%" class="text-center">
@@ -179,11 +196,352 @@ Dashboard
                                         <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
                                             <i class="fas fa-edit fa-lg"></i>
                                         </a>
-                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="tooltip" data-original-title="Удалить">
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
                                             <i class="fas fa-trash fa-lg"></i>
                                         </a>
                                     </td>
                                 </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">4</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Игнат Богданов</td>
+                                    <td width="15%">+998 78 787 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Шайхантахурский район город Ташкент</td>
+                                    <td width="15%">30113850568014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">5</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-1.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Олег Степанов</td>
+                                    <td width="15%">+998 97 777 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Мирзо Улугбекский район город Ташкент</td>
+                                    <td width="15%">30101800050014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">6</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Игнат Богданов</td>
+                                    <td width="15%">+998 78 787 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Шайхантахурский район город Ташкент</td>
+                                    <td width="15%">30113850568014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">7</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-1.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Олег Степанов</td>
+                                    <td width="15%">+998 97 777 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Мирзо Улугбекский район город Ташкент</td>
+                                    <td width="15%">30101800050014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">8</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Игнат Богданов</td>
+                                    <td width="15%">+998 78 787 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Шайхантахурский район город Ташкент</td>
+                                    <td width="15%">30113850568014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">9</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-1.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Олег Степанов</td>
+                                    <td width="15%">+998 97 777 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Мирзо Улугбекский район город Ташкент</td>
+                                    <td width="15%">30101800050014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">10</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Игнат Богданов</td>
+                                    <td width="15%">+998 78 787 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Шайхантахурский район город Ташкент</td>
+                                    <td width="15%">30113850568014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">11</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-1.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Олег Степанов</td>
+                                    <td width="15%">+998 97 777 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Мирзо Улугбекский район город Ташкент</td>
+                                    <td width="15%">30101800050014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">12</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Игнат Богданов</td>
+                                    <td width="15%">+998 78 787 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Шайхантахурский район город Ташкент</td>
+                                    <td width="15%">30113850568014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">13</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-1.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Олег Степанов</td>
+                                    <td width="15%">+998 97 777 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Мирзо Улугбекский район город Ташкент</td>
+                                    <td width="15%">30101800050014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">14</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Игнат Богданов</td>
+                                    <td width="15%">+998 78 787 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Шайхантахурский район город Ташкент</td>
+                                    <td width="15%">30113850568014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">15</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-1.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Олег Степанов</td>
+                                    <td width="15%">+998 97 777 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Мирзо Улугбекский район город Ташкент</td>
+                                    <td width="15%">30101800050014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">16</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Игнат Богданов</td>
+                                    <td width="15%">+998 78 787 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Шайхантахурский район город Ташкент</td>
+                                    <td width="15%">30113850568014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">17</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-1.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Олег Степанов</td>
+                                    <td width="15%">+998 97 777 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Мирзо Улугбекский район город Ташкент</td>
+                                    <td width="15%">30101800050014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">18</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Игнат Богданов</td>
+                                    <td width="15%">+998 78 787 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Шайхантахурский район город Ташкент</td>
+                                    <td width="15%">30113850568014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">19</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-1.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Олег Степанов</td>
+                                    <td width="15%">+998 97 777 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Мирзо Улугбекский район город Ташкент</td>
+                                    <td width="15%">30101800050014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">20</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">Игнат Богданов</td>
+                                    <td width="15%">+998 78 787 33 33</td>
+                                    <td width="25%">Квартира 14/23 улица Зиёлилар Шайхантахурский район город Ташкент</td>
+                                    <td width="15%">30113850568014</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                
                                 
                               
                             </tbody>
@@ -212,47 +570,11 @@ Dashboard
 <script src="{% static 'plugins/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
 <script src="{% static 'plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
 <script src="{% static 'js/demo/table-manage-responsive.demo.js ' %}"></script>
-<script src="{% static 'js\datatables\datatables.checkboxes.js ' %}"></script>
-<script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
+<script src="{% static 'js/datatables/datatables.checkboxes.js ' %}"></script>
+<script src="{% static 'js/mine.js ' %}"></script>
+<!-- <script src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script> -->
 <script>
-    $(document).ready(function () {
-        
-        // Setup - add a text input to each footer cell
-       
-
-        // DataTable
-        var table = $('#example').DataTable({
-            initComplete: function () {
-                // Apply the search
-                this.api().columns().every(function () {
-                    var that = this;
-                    
-                    $('input', this.footer()).on('keyup change clear', function () {
-                        if (that.search() !== this.value) {
-                            that
-                                .search(this.value)
-                                .draw();
-                               
-                        }
-                    });
-                });
-            },
-            columnDefs: [{
-                orderable: false,
-                checkboxes:{
-                    selectRow:true
-                },
-                className: 'select-checkbox ',
-                targets: 0
-            }],
-            select: {
-                style: 'multi',
-                selector: 'td:first-child'
-            },
-            order: [[1, 'asc']]
-        });
-
-    });
+    
 </script>
 
 <!-- ================== END PAGE LEVEL JS ================== -->
