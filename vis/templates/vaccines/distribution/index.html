@@ -31,7 +31,7 @@ Dashboard
     </ol> -->
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Справочник вакцин</h1>
+    <h1 class="page-header">Распределение вакцины</h1>
     <!-- end page-header -->
     <!-- begin row -->
     <div class="row">
@@ -51,18 +51,6 @@ Dashboard
                     <!-- email -->
                     <div class="row ml-3">
                         <div class="col-2">
-                            <input type="text" class="form-control" placeholder="Введите название вакцины " />
-                        </div>
-                        <div class="col-2">
-                            <select name="" id=" " class="form-control">
-                                <option value="">Введите код категории</option>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                                <option value="">4</option>
-                            </select>
-                        </div>
-                        <div class="col-2">
                             <select name="" id=" " class="form-control">
                                 <option value="">Введите код вакцины</option>
                                 <option value="">1</option>
@@ -71,6 +59,22 @@ Dashboard
                                 <option value="">4</option>
                             </select>
                         </div>
+                        <div class="col-2">
+                            <select name="" id=" " class="form-control">
+                                <option value="">Введите код области</option>
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                            </select>
+                        </div>
+                        <div class="col-2">
+                            <input type="text" class="form-control" placeholder="Введите количество вакцины" />
+                        </div>
+                        <div class="col-2">
+                            <input type="date" data-toggle="tooltip" data-placement="bottom" data-original-title="срок использования" class="form-control" placeholder="Введите количество вакцины" />
+                        </div>
+                        
                         <div class="col-2">
                             <button class="btn btn-info"> <i class="fas fa-search"></i> Поиск</button>
                         </div>
@@ -116,10 +120,10 @@ Dashboard
                 </div>
                 <!-- end panel-heading -->
 
-                {% include "vaccines/handbook/add.html" %}
-                {% include "vaccines/handbook/edit.html" %}
-                {% include "vaccines/handbook/view.html" %}
-                {% include "vaccines/handbook/delete.html" %}
+                {% include "vaccines/distribution/add.html" %}
+                {% include "vaccines/distribution/edit.html" %}
+                {% include "vaccines/distribution/view.html" %}
+                {% include "vaccines/distribution/delete.html" %}
 
                 <!-- begin alert -->
 
@@ -133,9 +137,10 @@ Dashboard
                                         type="checkbox" name="" id="checkall"></th>
                                 <th width="1%"></th>
                                 <th width="1%" data-orderable="false"></th>
-                                <th width="15%" class="text-nowrap text-center">название вакцины</th>
-                                <th width="15%" class="text-nowrap text-center">код категории </th>
-                                <th width="25%" class="text-nowrap">код вакцины</th>
+                                <th width="15%" class="text-nowrap text-center">код вакцины</th>
+                                <th width="15%" class="text-nowrap text-center">код области</th>
+                                <th width="25%" class="text-nowrap">количество вакцины</th>
+                                <th width="25%" class="text-nowrap">срок использования</th>
                                 <th width="10" class="text-nowrap">Действия</th>
                             </tr>
                         </thead>
@@ -143,35 +148,37 @@ Dashboard
                             <th></th>
                             <th></th>
                             <th></th>
-                            <th><input type="text" class="form-control" placeholder="Введите название вакцины " />
-                            </th>
-                            <th><select name="" id=" " class="form-control">
-                                    <option value="">Введите код категории</option>
+                           
+                            <th>
+                                <select name="" id=" " class="form-control">
+                                    <option value="">Введите код вакцины</option>
                                     <option value="">1</option>
                                     <option value="">2</option>
                                     <option value="">3</option>
                                     <option value="">4</option>
                                 </select></th>
                             <th><select name="" id=" " class="form-control">
-                                    <option value="">Введите код вакцины</option>
-                                    <option value="">1525</option>
-                                    <option value="">2232</option>
-                                    <option value="">3232</option>
-                                    <option value="">4322</option>
-                                </select></th>
-
+                                <option value="">Введите код области</option>
+                                <option value="">1</option>
+                                <option value="">2</option>
+                                <option value="">3</option>
+                                <option value="">4</option>
+                            </select></th>
+                            <th><input type="text" class="form-control" placeholder="Введите количество вакцины" /></th>
+                            <th><input type="date" class="form-control" name="" id="" data-toggle="tooltip" data-placement="bottom" data-original-title="срок использования"></th>
                             <th></th>
                         </thead>
                         <tbody>
                             <tr class="even gradeX">
+                                
                                 <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
                                 <td width="1%" class="f-s-600 text-inverse">1</td>
                                 <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}"
                                         class="img-rounded height-30" /></td>
-                                <td width="15%">clostridial</td>
+                                <td width="15%">1525</td>
                                 <td width="15%">1</td>
-                                <td width="25%">1525</td>
-
+                                <td width="25%">500 пакетов</td>
+                                <td>01.06.2022</td>
                                 <td width="10%" class="text-center">
                                     <a class="btn btn-xs btn-info" href="#" data-toggle="modal"
                                         data-target="#viewModal">
@@ -188,100 +195,151 @@ Dashboard
                                 </td>
                             </tr>
                             <tr class="even gradeX">
+                            
                                 <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
                                 <td width="1%" class="f-s-600 text-inverse">2</td>
-                                <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}"
-                                        class="img-rounded height-30" /></td>
-                                <td width="15%">clostridial</td>
+                                <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                <td width="15%">1525</td>
                                 <td width="15%">1</td>
-                                <td width="25%">1525</td>
-
+                                <td width="25%">500 пакетов</td>
+                                <td>01.06.2022</td>
                                 <td width="10%" class="text-center">
-                                    <a class="btn btn-xs btn-info" href="#" data-toggle="modal"
-                                        data-target="#viewModal">
+                                    <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
                                         <i class="fas fa-eye fa-lg"></i>
                                     </a>
-                                    <a class="btn btn-xs btn-warning" href="#" data-toggle="modal"
-                                        data-target="#editModal">
+                                    <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="fas fa-edit fa-lg"></i>
                                     </a>
-                                    <a class="btn btn-xs btn-danger" href="#" data-toggle="modal"
-                                        data-target="#deleteModal">
+                                    <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
                                         <i class="fas fa-trash fa-lg"></i>
                                     </a>
                                 </td>
                             </tr>
                             <tr class="even gradeX">
+                            
                                 <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
                                 <td width="1%" class="f-s-600 text-inverse">3</td>
-                                <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}"
-                                        class="img-rounded height-30" /></td>
-                                <td width="15%">clostridial</td>
+                                <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                <td width="15%">1525</td>
                                 <td width="15%">1</td>
-                                <td width="25%">1525</td>
-
+                                <td width="25%">500 пакетов</td>
+                                <td>01.06.2022</td>
                                 <td width="10%" class="text-center">
-                                    <a class="btn btn-xs btn-info" href="#" data-toggle="modal"
-                                        data-target="#viewModal">
+                                    <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
                                         <i class="fas fa-eye fa-lg"></i>
                                     </a>
-                                    <a class="btn btn-xs btn-warning" href="#" data-toggle="modal"
-                                        data-target="#editModal">
+                                    <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="fas fa-edit fa-lg"></i>
                                     </a>
-                                    <a class="btn btn-xs btn-danger" href="#" data-toggle="modal"
-                                        data-target="#deleteModal">
+                                    <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
                                         <i class="fas fa-trash fa-lg"></i>
                                     </a>
                                 </td>
                             </tr>
                             <tr class="even gradeX">
+                            
                                 <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
                                 <td width="1%" class="f-s-600 text-inverse">4</td>
-                                <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}"
-                                        class="img-rounded height-30" /></td>
-                                <td width="15%">clostridial</td>
-                                <td width="15%">1</td>
-                                <td width="25%">1525</td>
-
+                                <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                <td width="15%">1525</td>
+                                <td width="15%">4</td>
+                                <td width="25%">500 пакетов</td>
+                                <td>01.06.2022</td>
                                 <td width="10%" class="text-center">
-                                    <a class="btn btn-xs btn-info" href="#" data-toggle="modal"
-                                        data-target="#viewModal">
+                                    <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
                                         <i class="fas fa-eye fa-lg"></i>
                                     </a>
-                                    <a class="btn btn-xs btn-warning" href="#" data-toggle="modal"
-                                        data-target="#editModal">
+                                    <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="fas fa-edit fa-lg"></i>
                                     </a>
-                                    <a class="btn btn-xs btn-danger" href="#" data-toggle="modal"
-                                        data-target="#deleteModal">
+                                    <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
                                         <i class="fas fa-trash fa-lg"></i>
                                     </a>
                                 </td>
                             </tr>
                             <tr class="even gradeX">
+                            
                                 <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
                                 <td width="1%" class="f-s-600 text-inverse">5</td>
-                                <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}"
-                                        class="img-rounded height-30" /></td>
-                                <td width="15%">clostridial</td>
-                                <td width="15%">1</td>
-                                <td width="25%">1525</td>
-
+                                <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                <td width="15%">1525</td>
+                                <td width="15%">3</td>
+                                <td width="25%">500 пакетов</td>
+                                <td>01.06.2022</td>
                                 <td width="10%" class="text-center">
-                                    <a class="btn btn-xs btn-info" href="#" data-toggle="modal"
-                                        data-target="#viewModal">
+                                    <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
                                         <i class="fas fa-eye fa-lg"></i>
                                     </a>
-                                    <a class="btn btn-xs btn-warning" href="#" data-toggle="modal"
-                                        data-target="#editModal">
+                                    <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
                                         <i class="fas fa-edit fa-lg"></i>
                                     </a>
-                                    <a class="btn btn-xs btn-danger" href="#" data-toggle="modal"
-                                        data-target="#deleteModal">
+                                    <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
                                         <i class="fas fa-trash fa-lg"></i>
                                     </a>
                                 </td>
+                            </tr>
+                            <tr class="even gradeX">
+                            
+                                <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                <td width="1%" class="f-s-600 text-inverse">6</td>
+                                <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                <td width="15%">1525</td>
+                                <td width="15%">2</td>
+                                <td width="25%">500 пакетов</td>
+                                <td>01.06.2022</td>
+                                <td width="10%" class="text-center">
+                                    <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                        <i class="fas fa-eye fa-lg"></i>
+                                    </a>
+                                    <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                        <i class="fas fa-edit fa-lg"></i>
+                                    </a>
+                                    <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                        <i class="fas fa-trash fa-lg"></i>
+                                    </a>
+                                </td>
+                                <tr class="even gradeX">
+                                
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">7</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">1525</td>
+                                    <td width="15%">2</td>
+                                    <td width="25%">500 пакетов</td>
+                                    <td>01.06.2022</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr class="even gradeX">
+                                
+                                    <td width="1%" class="text-center"><input type="checkbox" name="" class="checkone"></td>
+                                    <td width="1%" class="f-s-600 text-inverse">8</td>
+                                    <td width="1%" class="with-img"><img src="{% static 'img/user/user-3.jpg' %}" class="img-rounded height-30" /></td>
+                                    <td width="15%">1525</td>
+                                    <td width="15%">1</td>
+                                    <td width="25%">500 пакетов</td>
+                                    <td>01.06.2022</td>
+                                    <td width="10%" class="text-center">
+                                        <a class="btn btn-xs btn-info" href="#" data-toggle="modal" data-target="#viewModal">
+                                            <i class="fas fa-eye fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-warning" href="#" data-toggle="modal" data-target="#editModal">
+                                            <i class="fas fa-edit fa-lg"></i>
+                                        </a>
+                                        <a class="btn btn-xs btn-danger" href="#" data-toggle="modal" data-target="#deleteModal">
+                                            <i class="fas fa-trash fa-lg"></i>
+                                        </a>
+                                    </td>
+                                </tr>
                             </tr>
                         </tbody>
 
