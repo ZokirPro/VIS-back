@@ -22,12 +22,12 @@ Dashboard
     <ol class="breadcrumb float-xl-right">
         <li class="breadcrumb-item"><a href="{% url 'index'%}">Дома</a></li>
         <li class="breadcrumb-item"><a href="javascript:;">Владельцы</a></li>
-        <li class="breadcrumb-item active"><a href="{% url 'owners:juridic_person' %}">Юридическое лицо</a></li>
+        <li class="breadcrumb-item active"><a href="{% url 'owners:physical_person' %}">Физическое лицо</a></li>
 
     </ol>
     <!-- end breadcrumb -->
     <!-- begin page-header -->
-    <h1 class="page-header">Юридическое лицо </h1>
+    <h1 class="page-header">Физическое лицо </h1>
     <!-- end page-header -->
     <!-- begin row -->
     <div class="row">
@@ -81,14 +81,14 @@ Dashboard
             <div class="panel panel-inverse">
                 <!-- begin panel-heading -->
                 <div class="panel-heading">
-                    <h4 class="panel-title">список юридических лицо</h4>
-                    <a href="javascript:;" class="btn  btn-info mr-2" data-toggle="modal" data-target="#addModal"> <i
-                            class="fas fa-plus-circle fa-lg"></i> Добавить владельца</a>
+                    <h4 class="panel-title">Список</h4>
+                    <a href="javascript:;" class="btn btn-xs btn-info mr-2" data-toggle="modal" data-target="#addModal">
+                        <i class="fas fa-plus-circle"></i> Добавить</a>
                     <!-- The Modal -->
 
-                    <a href="javascript:;" class="btn  btn-success mr-2"> <i class="fas fa-arrow-circle-up fa-lg"></i>
+                    <a href="javascript:;" class="btn btn-xs btn-success mr-2"> <i class="fas fa-arrow-circle-up"></i>
                         Экспорт</a>
-                    <a href="javascript:;" class="btn  btn-danger mr-5"> <i class="fas fa-arrow-circle-down fa-lg"></i>
+                    <a href="javascript:;" class="btn btn-xs btn-danger mr-5"> <i class="fas fa-arrow-circle-down"></i>
                         Импорт</a>
                     <div class="panel-heading-btn">
 
@@ -104,9 +104,9 @@ Dashboard
                 </div>
                 <!-- end panel-heading -->
 
-                {% include "owners/yuridik/add.html" %}
-                {% include "owners/yuridik/edit.html" %}
-                {% include "owners/yuridik/view.html" %}
+                {% include "owners/jismoniy/add.html" %}
+                {% include "owners/jismoniy/edit.html" %}
+                {% include "owners/jismoniy/view.html" %}
 
                 <!-- begin alert -->
 
@@ -118,7 +118,7 @@ Dashboard
                             <tr>
                                 <th width="1%"></th>
                                 <th width="1%" data-orderable="false"></th>
-                                <th class="text-nowrap">Лолное название организации</th>
+                                <th class="text-nowrap">ФИО</th>
                                 <th class="text-nowrap">Номер телефона</th>
                                 <th class="text-nowrap">Адрес</th>
                                 <th class="text-nowrap">ПИНФЛ</th>

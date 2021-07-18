@@ -16,3 +16,7 @@ def other_html(request):
     template=loader.get_template(load_template)
 
     return HttpResponse(template.render(context,request))
+
+def LoginPage(request):
+    context={}
+    return render(request,'app/login.html',context)
